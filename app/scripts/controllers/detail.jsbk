@@ -1,0 +1,82 @@
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name angularTestApp.controller:DetailctrlCtrl
+ * @description
+ * # DetailctrlCtrl
+ * Controller of the angularTestApp
+ */
+
+/*
+angular.module('angularTestApp')
+  .controller('DetailCtrl', function ($scope) {
+	    $scope.oneAtATime = true;
+
+	    $scope.groups = [
+	      {
+	        title: 'Dynamic Group Header - 1',
+	        content: 'Dynamic Group Body - 1'
+	      },
+	      {
+	        title: 'Dynamic Group Header - 2',
+	        content: 'Dynamic Group Body - 2'
+	      }
+	    ];
+
+	    $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+	    $scope.addItem = function() {
+	      var newItemNo = $scope.items.length + 1;
+	      $scope.items.push('Item ' + newItemNo);
+	    };
+
+	    $scope.status = {
+	      isFirstOpen: true,
+	      isFirstDisabled: false
+	    };
+	  });
+*/
+
+
+angular.module('angularTestApp', [])
+  .directive('optionsDisabled', function($parse) {
+    var disableOptions = function(scope, attr, element, data, fnDisableIfTrue) {
+      // refresh the disabled options in the select element.
+      $("option[value!='?']", element).each(function(i, e) {
+        var locals = {};
+        locals[attr] = data[i];
+        $(this).attr("disabled", fnDisableIfTrue(scope, locals));
+      });
+    };
+    return {
+      priority: 0,
+      require: 'ngModel',
+      link: function(scope, iElement, iAttrs, ctrl) {
+        // parse expression and build array of disabled options
+        var expElements = iAttrs.optionsDisabled.match(/^\s*(.+)\s+for\s+(.+)\s+in\s+(.+)?\s*/);
+        var attrToWatch = expElements[3];
+        var fnDisableIfTrue = $parse(expElements[1]);
+        scope.$watch(attrToWatch, function(newValue, oldValue) {
+          if(newValue)
+            disableOptions(scope, expElements[2], iElement, newValue, fnDisableIfTrue);
+        }, true);
+        // handle model updates properly
+        scope.$watch(iAttrs.ngModel, function(newValue, oldValue) {
+          var disOptions = $parse(attrToWatch)(scope);
+          if(newValue)
+            disableOptions(scope, expElements[2], iElement, disOptions, fnDisableIfTrue);
+        });
+      }
+    };
+  });
+
+function OptionsController($scope) {
+
+  alert('test');
+
+  $scope.ports = [{name: 'http', isinuse: true},
+    {name: 'test', isinuse: false}];
+
+  $scope.selectedport = 'test';
+}

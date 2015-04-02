@@ -1,0 +1,28 @@
+<!-- 入力画面 -->
+<div class="test">
+  <h>Registername</h>
+  <input type="text" ng-model="registerName">
+  <br>
+  <h>Number</h>
+  <input type="text" ng-model="number">
+  <br>
+    <script type="text/ng-template" id="modal.html">
+      <div class="modal-header">
+        <div class="modal-title">確認ダイアログ</div>
+      </div>
+      <form role="form" name="modalForm" novalidate>
+        <div class="modal-body">
+          登録名は{{registerName}}
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-default" ng-click="cancel()">キャンセル</button>
+      </div>
+      </form>
+    </script>
+
+  <button class="btn btn-success  btn-sm" ng-click="showModal()">modal</button>
+  <button class="btn btn-success  btn-sm" ng-click="open()">登録</button>
+</div>

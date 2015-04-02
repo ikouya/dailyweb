@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <div class="modal-title">確認ダイアログ</div>
+</div>
+<form role="form" name="modalForm" novalidate>
+  <div class="modal-body">
+    登録名は{{registerName}}
+  </div>
+</form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">OK</button>
+  <button class="btn btn-default" ng-click="cancel()">キャンセル</button>
+</div>
+</form>

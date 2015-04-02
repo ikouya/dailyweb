@@ -1,0 +1,25 @@
+/* Space out content a bit */
+th.child1 {
+  border-collapse: collapse;
+  color: #00b3ee;
+  text-align: left;
+  width: 100px;
+}
+
+table.child1 {
+  border-collapse: collapse;
+  border: 1px #808080 solid;
+  width: 400px;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+
+}
+
+table.hole_table {
+  border-collapse: collapse;
+  border: 1px #808080 solid;
+  width: 500px;
+  border-left: none;
+  border-right: none;
+}
