@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc function
- * @name angularTestApp.controller:DetailctrlCtrl
+ * @name dailyWebApp.controller:DetailctrlCtrl
  * @description
  * # DetailctrlCtrl
- * Controller of the angularTestApp
+ * Controller of the dailyWebApp
  */
 
 /*
-angular.module('angularTestApp')
+angular.module('dailyWebApp')
   .controller('DetailCtrl', function ($scope) {
 	    $scope.oneAtATime = true;
 
@@ -39,7 +39,7 @@ angular.module('angularTestApp')
 */
 
 
-angular.module('angularTestApp', [])
+angular.module('dailyWebApp', [])
   .directive('optionsDisabled', function($parse) {
     var disableOptions = function(scope, attr, element, data, fnDisableIfTrue) {
       // refresh the disabled options in the select element.

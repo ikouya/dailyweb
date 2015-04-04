@@ -1,4 +1,4 @@
-angular.module('angularTestApp')
+angular.module('dailyWebApp')
   .controller('HogeCtrl', ['$scope', '$modal', function ($scope, $modal) {
     $scope.showModal = function () {
       var modalInstance = $modal.open({

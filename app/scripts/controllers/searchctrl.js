@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularTestApp')
+angular.module('dailyWebApp')
   .factory('SearchService', ['$scope','$resource', function ($scope,$resourc) {
 
     return {

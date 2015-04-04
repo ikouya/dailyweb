@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the angularTryApp
  */
-angular.module('angularTestApp')
+angular.module('dailyWebApp')
   .controller('DetailCtrl', ['$scope','$http','$modal', function ($scope,$http,$modal) {
 
 
@@ -72,7 +72,7 @@ angular.module('angularTestApp')
 
 }]);
 
-angular.module('angularTestApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance,items) {
+angular.module('dailyWebApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance,items) {
 
   alert('regi' + items.registerName);
   alert('number' + items.number);
@@ -94,5 +94,3 @@ angular.module('angularTestApp').controller('ModalInstanceCtrl', function ($scop
     $modalInstance.dismiss('cancel');
   };
 });
-
-

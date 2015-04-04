@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name angularTestApp
+ * @name dailyWebApp
  * @description
- * # angularTestApp
+ * # dailyWebApp
  *
  * Main module of the application.
  */
 angular
-  .module('angularTestApp', [
+  .module('dailyWebApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

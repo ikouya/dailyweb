@@ -3,7 +3,7 @@
 describe('Controller: DetailctrlCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('angularTestApp'));
+  beforeEach(module('dailyWebApp'));
 
   var DetailctrlCtrl,
     scope;
