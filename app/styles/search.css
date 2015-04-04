@@ -1,0 +1,8 @@
+/* Space out content a bit */
+th.search-header {
+  border-collapse: collapse;
+  background-color: #00b3ee;
+  color: white;
+  text-align: left;
+  width: 100px;
+}

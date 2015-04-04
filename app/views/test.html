@@ -1,0 +1,15 @@
+<ng-app="dailyWebApp">
+<div ng-controller="AccordionCtrl">
+  <p>
+    <button class="btn btn-default btn-sm" ng-click="status.open = !status.open"></button>
+  </p>
+
+  <accordion close-others="oneAtATime">
+    <accordion-group is-open="status.open">
+        <accordion-heading>
+            I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+        </accordion-heading>
+        This is just some content to illustrate fancy headings.
+    </accordion-group>
+  </accordion>
+</div>
