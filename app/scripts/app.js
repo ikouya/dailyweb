@@ -36,6 +36,10 @@ angular
         templateUrl: 'views/detail.html',
         controller: 'DetailCtrl'
       })
+      .when('/kakugen', {
+        templateUrl: 'views/kakugen.html',
+        controller: 'KakugenCtrl'
+      })
 
       .otherwise({
         redirectTo: '/'
