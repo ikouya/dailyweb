@@ -1,0 +1,199 @@
+--自分の環境にあるブランチの確認
+--　\*が今自分がいるブランチ***
+
+
+
+`yukiyoshimura /Applications/develop/GitHub/dailyweb $ git branch`
+
+
+      develop
+      feature/16
+      feature/16-WIP
+    * master
+
+--ブランチをきります
+--今いるのはmasterなので、masterブランチから新しいブランチを切ります
+`yukiyoshimura /Applications/develop/GitHub/dailyweb $ git branch feature/58`
+
+
+--新しくつくったブランチに移動します
+`yukiyoshimura /Applications/develop/GitHub/dailyweb $ git checkout feature/58`
+
+
+    Switched to branch 'feature/58'
+
+
+--今いるブランチを確認します
+`
+yukiyoshimura /Applications/develop/GitHub/dailyweb $ git branch`
+
+
+      develop
+      feature/16
+      feature/16-WIP
+    * feature/58
+      master
+
+
+--これで新しくつくったブランチ上で作業ができます
+
+
+タスクの対応を行います :sake:
+
+--修正が終わったら今度は、コミット、プッシュを行います
+--変更点を確認します
+--直前のコミットからの変更があったファイルが表示されます
+-modified:修正したファイル
+-deleted:削除したファイル
+-Untracked files:新規作成したファイル
+
+`yukiyoshimura /Applications/develop/GitHub/dailyweb $ git status`
+
+
+  On branch feature/58
+  Changes not staged for commit:
+    (use "git add/rm <file>..." to update what will be committed)
+    (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   app/index.html
+	modified:   app/scripts/ :innocent: app.js
+	deleted:    app/scripts/controllers/detail.jsbk
+	modified:   app/scripts/controllers/searchctrl.js
+
+  Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+
+	app/scripts/controllers/kakugenctrl.js
+	app/views/kakugen.html
+
+  no changes added to commit (use "git add" and/or "git commit -a")
+
+--ファイルの変更点を確認します
+`
+yukiyoshimura /Applications/develop/GitHub/dailyweb $ git diff
+`
+
+--問題なければコミットします
+--消す対象のファイルをコミットするには rm
+`yukiyoshimura /Applications/develop/GitHub/dailyweb $ git rm app/scripts/controllers/detail.jsbk`
+
+
+    rm 'app/scripts/controllers/detail.jsbk'
+
+
+--修正をコミットしたいファイル　新規追加したいファイルはaddします
+`
+yukiyoshimura /Applications/develop/GitHub/dailyweb $ git add ./`
+
+--コミット対象を確認します
+`yukiyoshimura /Applications/develop/GitHub/dailyweb $ git status`
+
+
+    On branch feature/58
+    Changes to be committed:`
+  	modified:   app/index.html
+  	modified:   app/scripts/app.js
+  	deleted:    app/scripts/controllers/detail.jsbk
+  	new file:   app/scripts/controllers/kakugenctrl.js
+  	modified:   app/scripts/controllers/searchctrl.js
+  	new file:   app/views/kakugen.html
+
+
+--コミットします -mオプションでコメントをつけれます。
+
+`yukiyoshimura /Applications/develop/GitHub/dailyweb $ git commit -m"feature/58" -m"格言画面へ飛ぶように修正"`
+
+
+    [feature/58 a566530] feature/58
+     6 files changed, 17 insertions(+), 90 deletions(-)
+     delete mode 100644 app/scripts/controllers/detail.jsbk
+     create mode 100644 app/scripts/controllers/kakugenctrl.js
+     create mode 100644 app/views/kakugen.html
+
+
+--コミットログを確認します
+`yukiyoshimura /Applications/develop/GitHub/dailyweb $ git log`
+
+
+      commit a56653076dbc7eaff968f76f40862b47ec7037bf
+      Author: yukiyoshimura <yuukiyy0234@gmail.com>
+      Date:   Sun Apr 5 22:01:03 2015 +0900
+
+      feature/58
+
+      格言画面へ飛ぶように修正
+
+      commit e070127d5202240067352d6630a1b9d24a6b6f28
+      Merge: 72f452d b146aa6
+      Author: yukiyoshimura <yuukiyy0234@gmail.com>
+      Date:   Sat Apr 4 11:30:21 2015 +0900
+
+          init
+
+      commit b146aa69ae503e608be47842d8ed347ec22259b2
+      Author: yukiyoshimura <yuukiyy0234@gmail.com>
+      Date:   Sat Apr 4 10:56:11 2015 +0900
+
+          feature/16-WIP
+
+          トップページのリンクを変えたで
+
+      commit 51890c4415a8e36da57bdb89ad375f9557d77c4f
+      Author: yukiyoshimura <yuukiyy0234@gmail.com>
+      Date:   Fri Apr 3 00:56:21 2015 +0900
+
+          feature/16-WIP
+
+          4/2 making
+
+      commit 72f452d5414fe23e76f510f15b046015f54a9b1e
+      Author: ikouya <uhaikouya@gmail.com>
+      Date:   Thu Apr 2 00:58:59 2015 +0900
+
+          Initial commit
+
+
+
+--コミットしたのでgithubへpushします
+`yukiyoshimura /Applications/develop/GitHub/dailyweb $ git push origin feature/58`
+
+
+  	Counting objects: 11, done.
+  	Delta compression using up to 4 threads.
+  	Compressing objects: 100% (10/10), done.
+  	Writing objects: 100% (11/11), 1.22 KiB | 0 bytes/s, done.
+  	Total 11 (delta 5), reused 0 (delta 0)
+  	To https://github.com/ikouya/dailyweb.git
+   	* [new branch]      feature/58 -> feature/58
+
+
+
+--masterブランチにfeature/XXXブランチをマージします
+--まずはmasterに移動
+`yukiyoshimura /Applications/develop/GitHub/dailyweb $ git checkout master`
+
+
+    Switched to branch 'master'
+    Your branch is up-to-date with 'origin/master'.
+
+
+--masterブランチにfeatureブランチをマージします
+  `yukiyoshimura /Applications/develop/GitHub/dailyweb $ git merge feature/58`
+
+  
+    Updating e070127..a566530
+    Fast-forward
+     app/index.html                         |  5 +++--
+     app/scripts/app.js                     |  4 ++++
+     app/scripts/controllers/detail.jsbk    | 82 ----------------------------------------------------------------------------------
+     app/scripts/controllers/kakugenctrl.js |  7 +++++++
+     app/scripts/controllers/searchctrl.js  |  8 ++------
+     app/views/kakugen.html                 |  1 +
+     6 files changed, 17 insertions(+), 90 deletions(-)
+     delete mode 100644 app/scripts/controllers/detail.jsbk
+     create mode 100644 app/scripts/controllers/kakugenctrl.js
+     create mode 100644 app/views/kakugen.html
+    yukiyoshimura /Applications/develop/GitHub/dailyweb $ git push origin master
+    Total 0 (delta 0), reused 0 (delta 0)
+    To https://github.com/ikouya/dailyweb.git
+       e070127..a566530  master -> master
