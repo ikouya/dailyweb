@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('dailyWebApp')
-    .factory('Util', ['$scope', function ($scope) {
+    .factory('util', [function() {
 
     return {
-      getSystemDate：function(){
-        var hiduke=new Date();
+      getSystemDate:function(){
+
+
+        var hiduke= new Date();
 
         //年・月・日・曜日を取得する
         var year = hiduke.getFullYear();
@@ -15,8 +17,8 @@ angular.module('dailyWebApp')
 
         var yobi= new Array("日","月","火","水","木","金","土");
 
-        document.write("西暦"+year+"年"+month+"月"+day+"日 "+yobi[week]+"曜日");
+        return ("西暦"+year+"年"+month+"月"+day+"日 "+yobi[week]+"曜日");
 
       }
-    }
-    });
+    };
+  }]);

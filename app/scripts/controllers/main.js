@@ -1,5 +1,5 @@
-
-angular.module('dailyWebApp').controller('AlertDemoCtrl', function ($scope) {
+'use strict';
+angular.module('dailyWebApp').controller('MainCtrl', function ($scope) {
   $scope.alerts = [
     { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
     { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
