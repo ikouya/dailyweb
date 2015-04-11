@@ -9,15 +9,15 @@ angular.module('dailyWebApp')
 
       getSystemDate:function(){
         var gettime = {};
-        var hiduke= new Date();
+        var orgDate= new Date();
         //年・月・日・曜日を取得する
-        gettime["year"] = hiduke.getFullYear();
-        gettime["month"] = hiduke.getMonth()+1;
-        gettime["week"] = hiduke.getDay();
-        gettime["day"] = hiduke.getDate();
-        gettime["yobi"] = new Array("日","月","火","水","木","金","土");
+        gettime["year"]  = orgDate.getFullYear();
+        gettime["month"] = orgDate.getMonth()+1;
+        gettime["week"]  = orgDate.getDay();
+        gettime["day"]   = orgDate.getDate();
+        gettime["yobi"]  = new Array("日","月","火","水","木","金","土");
         console.log(gettime);
-        
+
         return gettime;
       }
     };

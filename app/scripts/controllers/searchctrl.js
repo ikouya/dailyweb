@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('dailyWebApp')
-  .factory('SearchCtrl', [function () {
+  .controller('SearchCtrl', [function () {
 
 }]);
