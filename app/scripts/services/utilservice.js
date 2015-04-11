@@ -3,22 +3,22 @@
 angular.module('dailyWebApp')
     .factory('util', [function() {
 
+
+
     return {
+
       getSystemDate:function(){
-
-
+        var gettime = {};
         var hiduke= new Date();
-
         //年・月・日・曜日を取得する
-        var year = hiduke.getFullYear();
-        var month = hiduke.getMonth()+1;
-        var week = hiduke.getDay();
-        var day = hiduke.getDate();
-
-        var yobi= new Array("日","月","火","水","木","金","土");
-
-        return ("西暦"+year+"年"+month+"月"+day+"日 "+yobi[week]+"曜日");
-
+        gettime["year"] = hiduke.getFullYear();
+        gettime["month"] = hiduke.getMonth()+1;
+        gettime["week"] = hiduke.getDay();
+        gettime["day"] = hiduke.getDate();
+        gettime["yobi"] = new Array("日","月","火","水","木","金","土");
+        console.log(gettime);
+        
+        return gettime;
       }
     };
   }]);
